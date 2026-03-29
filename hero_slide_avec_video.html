@@ -1,0 +1,266 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2744;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f7f4ef;
+    --muted: #6b7a99;
+    --light-border: rgba(201,168,76,0.25);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  body { font-family: var(--sans); }
+
+  .hero-wrap { padding: 40px 36px; background: var(--cream); }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .hero-avatar {
+    width: 150px; height: 150px; border-radius: 50%;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 42px; color: var(--gold);
+    border: 3px solid var(--gold); margin-left: auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; color: var(--gold);
+    text-transform: uppercase; font-weight: 500; margin-bottom: 12px;
+  }
+  .hero-name {
+    font-family: var(--serif); font-size: 44px; font-weight: 600;
+    color: var(--navy); line-height: 1.1; margin-bottom: 10px;
+  }
+  .divider-gold { width: 48px; height: 2px; background: var(--gold); margin-bottom: 20px; }
+  .accroche {
+    font-family: var(--serif); font-size: 18px; font-weight: 500;
+    color: var(--navy); line-height: 1.55;
+    border-left: 3px solid var(--gold); padding-left: 16px;
+    font-style: italic; margin-bottom: 20px;
+  }
+  .hero-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+  .hero-sectors { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { font-size: 11px; font-weight: 500; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.04em; }
+  .badge-navy { background: var(--navy); color: var(--gold-light); }
+  .badge-gold { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid var(--light-border); }
+
+  .section-divider {
+    border: none; border-top: 1px solid var(--light-border); margin: 0 0 32px;
+  }
+
+  .video-section-label {
+    font-size: 11px; letter-spacing: 0.18em; color: var(--gold);
+    text-transform: uppercase; font-weight: 500; margin-bottom: 6px;
+  }
+  .video-section-title {
+    font-family: var(--serif); font-size: 24px; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px;
+  }
+  .video-section-sub {
+    font-size: 13px; color: var(--muted); margin-bottom: 24px;
+  }
+
+  .video-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .video-embed-box {
+    background: var(--navy);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9;
+  }
+  .video-embed-box iframe {
+    width: 100%; height: 100%; border: none; display: block;
+  }
+  .video-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px; cursor: pointer;
+    background: var(--navy);
+    transition: background 0.2s;
+  }
+  .video-placeholder:hover { background: #243560; }
+  .play-btn {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-triangle {
+    width: 0; height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 18px solid var(--navy);
+    margin-left: 4px;
+  }
+  .video-placeholder-title {
+    font-family: var(--serif); font-size: 16px; font-weight: 500;
+    color: var(--gold-light); text-align: center; padding: 0 20px;
+  }
+  .video-placeholder-sub {
+    font-size: 11px; color: rgba(255,255,255,0.45); text-align: center;
+  }
+
+  .video-info-panel {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .video-desc {
+    font-size: 13px; color: var(--navy); line-height: 1.7;
+    padding: 16px 18px;
+    background: white;
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+    border-top: 1px solid rgba(26,39,68,0.08);
+    border-right: 1px solid rgba(26,39,68,0.08);
+    border-bottom: 1px solid rgba(26,39,68,0.08);
+  }
+  .video-topics { display: flex; flex-direction: column; gap: 8px; }
+  .topic-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: var(--navy);
+    padding: 9px 14px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(26,39,68,0.07);
+  }
+  .topic-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+
+  .url-input-wrap {
+    margin-top: 16px;
+    background: rgba(201,168,76,0.07);
+    border: 1px dashed var(--light-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .url-label {
+    font-size: 11px; color: var(--gold); font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .url-row { display: flex; gap: 8px; }
+  .url-input {
+    flex: 1; font-family: var(--sans); font-size: 12px;
+    padding: 9px 12px; border-radius: 8px;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: white; color: var(--navy);
+    outline: none;
+  }
+  .url-input:focus { border-color: var(--gold); }
+  .url-btn {
+    font-family: var(--sans); font-size: 12px; font-weight: 500;
+    padding: 9px 16px; border-radius: 8px; cursor: pointer;
+    background: var(--navy); color: var(--gold-light); border: none;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .url-btn:hover { background: #243560; }
+  .url-hint { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+  .embed-status {
+    font-size: 11px; margin-top: 8px; padding: 6px 10px;
+    border-radius: 6px; display: none;
+  }
+  .embed-status.ok { display: block; background: rgba(46,125,79,0.1); color: #2e7d4f; }
+  .embed-status.err { display: block; background: rgba(200,50,50,0.08); color: #b03030; }
+</style>
+
+<div class="hero-wrap">
+
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Portfolio Professionnel · Assurance Qualité</div>
+      <div class="hero-name">Lylia Sarra<br>Daid</div>
+      <div class="divider-gold"></div>
+      <div class="accroche">"De la paillasse aux protocoles GMP — une expertise à double ancrage scientifique et réglementaire."</div>
+      <div class="hero-tagline">Chargée Assurance Qualité spécialisée en environnements réglementés GMP/BPF, gestion documentaire, CAPA et qualification. Formée en biochimie et biotechnologies.</div>
+      <div class="hero-sectors">
+        <span class="badge badge-navy">Pharmaceutique</span>
+        <span class="badge badge-navy">Cosmétique</span>
+        <span class="badge badge-navy">Dispositifs Médicaux</span>
+        <span class="badge badge-gold">GMP · BPF · ISO</span>
+      </div>
+    </div>
+    <div class="hero-avatar">LSD</div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="video-section-label">Présentation vidéo</div>
+  <div class="video-section-title">Je me présente en 2 minutes</div>
+  <div class="video-section-sub">Une façon directe de vous donner envie de me rencontrer — avant même de lire mon CV.</div>
+
+  <div class="video-layout">
+    <div>
+      <div class="video-embed-box" id="video-container">
+        <div class="video-placeholder" id="placeholder" onclick="document.getElementById('url-wrap').scrollIntoView({behavior:'smooth'})">
+          <div class="play-btn"><div class="play-triangle"></div></div>
+          <div class="video-placeholder-title">Ma vidéo de présentation</div>
+          <div class="video-placeholder-sub">Cliquez pour configurer le lien</div>
+        </div>
+      </div>
+
+      <div class="url-input-wrap" id="url-wrap">
+        <div class="url-label">Intégrer votre vidéo</div>
+        <div class="url-row">
+          <input class="url-input" id="video-url" type="text" placeholder="https://youtube.com/watch?v=... ou https://vimeo.com/...">
+          <button class="url-btn" onclick="loadVideo()">Intégrer</button>
+        </div>
+        <div class="url-hint">YouTube, Vimeo, ou tout lien iframe compatible. Pour GitHub Pages, une vidéo Vimeo ou YouTube public fonctionne parfaitement.</div>
+        <div class="embed-status" id="embed-status"></div>
+      </div>
+    </div>
+
+    <div class="video-info-panel">
+      <div class="video-desc">
+        Dans cette courte présentation, j'aborde mon parcours, ma vision de la qualité et ce qui me motive à travailler dans des environnements réglementés exigeants.
+      </div>
+      <div class="video-topics">
+        <div class="topic-row"><div class="topic-dot"></div>Mon double profil scientifique &amp; AQ</div>
+        <div class="topic-row"><div class="topic-dot"></div>Mes expériences terrain (CRO, GMP)</div>
+        <div class="topic-row"><div class="topic-dot"></div>Ma vision de la culture qualité</div>
+        <div class="topic-row"><div class="topic-dot"></div>Ce que je recherche comme mission</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function loadVideo() {
+  var raw = document.getElementById('video-url').value.trim();
+  var status = document.getElementById('embed-status');
+  var container = document.getElementById('video-container');
+  var embedUrl = '';
+
+  var ytMatch = raw.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  var vimeoMatch = raw.match(/vimeo\.com\/(\d+)/);
+
+  if (ytMatch) {
+    embedUrl = 'https://www.youtube.com/embed/' + ytMatch[1] + '?rel=0&modestbranding=1';
+  } else if (vimeoMatch) {
+    embedUrl = 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?title=0&byline=0&portrait=0';
+  } else if (raw.startsWith('http')) {
+    embedUrl = raw;
+  } else {
+    status.className = 'embed-status err';
+    status.textContent = 'Lien non reconnu. Vérifiez le format YouTube, Vimeo, ou URL directe.';
+    return;
+  }
+
+  container.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>';
+  status.className = 'embed-status ok';
+  status.textContent = 'Vidéo intégrée avec succès.';
+}
+</script>
