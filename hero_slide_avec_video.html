@@ -1,162 +1,188 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lylia Sarra Daid — Portfolio Assurance Qualité</title>
+<meta name="description" content="Portfolio professionnel de Lylia Sarra Daid, Chargée Assurance Qualité spécialisée GMP/BPF, pharmaceutique, cosmétique et dispositifs médicaux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
     --navy: #1a2744;
+    --navy-mid: #243560;
     --gold: #c9a84c;
     --gold-light: #e8c97a;
     --cream: #f7f4ef;
+    --white: #ffffff;
     --muted: #6b7a99;
     --light-border: rgba(201,168,76,0.25);
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
-  body { font-family: var(--sans); }
 
-  .hero-wrap { padding: 40px 36px; background: var(--cream); }
+  html { scroll-behavior: smooth; }
 
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--navy);
+    border-bottom: 1px solid var(--light-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 52px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    padding: 6px 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { color: var(--gold-light); }
+  .nav-btn.active { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+
+  /* ── SLIDES ── */
+  .slide { display: none; padding: 52px 48px; max-width: 960px; margin: 0 auto; min-height: calc(100vh - 52px); }
+  .slide.active { display: block; }
+
+  /* ── SHARED TYPO ── */
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; color: var(--gold);
+    text-transform: uppercase; font-weight: 500; margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--serif); font-size: 36px; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px; line-height: 1.15;
+  }
+  .section-sub {
+    font-size: 14px; color: var(--muted); margin-bottom: 36px; line-height: 1.6;
+  }
+  .divider-gold { width: 48px; height: 2px; background: var(--gold); margin-bottom: 28px; }
+
+  /* ── SLIDE 1 — HERO ── */
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 180px;
-    gap: 32px;
+    grid-template-columns: 1fr 200px;
+    gap: 40px;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 52px;
   }
   .hero-avatar {
-    width: 150px; height: 150px; border-radius: 50%;
+    width: 170px; height: 170px; border-radius: 50%;
     background: var(--navy);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 42px; color: var(--gold);
+    font-family: var(--serif); font-size: 48px; color: var(--gold);
     border: 3px solid var(--gold); margin-left: auto;
   }
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.18em; color: var(--gold);
-    text-transform: uppercase; font-weight: 500; margin-bottom: 12px;
-  }
   .hero-name {
-    font-family: var(--serif); font-size: 44px; font-weight: 600;
-    color: var(--navy); line-height: 1.1; margin-bottom: 10px;
+    font-family: var(--serif); font-size: 52px; font-weight: 600;
+    color: var(--navy); line-height: 1.05; margin-bottom: 12px;
   }
-  .divider-gold { width: 48px; height: 2px; background: var(--gold); margin-bottom: 20px; }
   .accroche {
-    font-family: var(--serif); font-size: 18px; font-weight: 500;
+    font-family: var(--serif); font-size: 20px; font-weight: 500;
     color: var(--navy); line-height: 1.55;
-    border-left: 3px solid var(--gold); padding-left: 16px;
-    font-style: italic; margin-bottom: 20px;
+    border-left: 3px solid var(--gold); padding-left: 18px;
+    font-style: italic; margin-bottom: 24px;
   }
-  .hero-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+  .hero-tagline { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; max-width: 500px; }
   .hero-sectors { display: flex; gap: 8px; flex-wrap: wrap; }
-  .badge { font-size: 11px; font-weight: 500; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.04em; }
+  .badge { font-size: 11px; font-weight: 500; padding: 6px 14px; border-radius: 20px; letter-spacing: 0.04em; }
   .badge-navy { background: var(--navy); color: var(--gold-light); }
   .badge-gold { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid var(--light-border); }
 
-  .section-divider {
-    border: none; border-top: 1px solid var(--light-border); margin: 0 0 32px;
-  }
-
-  .video-section-label {
-    font-size: 11px; letter-spacing: 0.18em; color: var(--gold);
-    text-transform: uppercase; font-weight: 500; margin-bottom: 6px;
-  }
-  .video-section-title {
-    font-family: var(--serif); font-size: 24px; font-weight: 600;
-    color: var(--navy); margin-bottom: 6px;
-  }
-  .video-section-sub {
-    font-size: 13px; color: var(--muted); margin-bottom: 24px;
-  }
-
-  .video-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
+  /* VIDEO */
+  .section-hr { border: none; border-top: 1px solid var(--light-border); margin: 0 0 40px; }
+  .video-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; align-items: start; }
   .video-embed-box {
-    background: var(--navy);
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    aspect-ratio: 16/9;
+    background: var(--navy); border-radius: 14px;
+    overflow: hidden; aspect-ratio: 16/9; position: relative;
   }
-  .video-embed-box iframe {
-    width: 100%; height: 100%; border: none; display: block;
-  }
+  .video-embed-box iframe { width: 100%; height: 100%; border: none; display: block; }
   .video-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 12px; cursor: pointer;
-    background: var(--navy);
-    transition: background 0.2s;
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px;
+    cursor: pointer; transition: background 0.2s;
   }
-  .video-placeholder:hover { background: #243560; }
+  .video-placeholder:hover { background: rgba(255,255,255,0.04); }
   .play-btn {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: var(--gold);
+    width: 56px; height: 56px; border-radius: 50%; background: var(--gold);
     display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s;
   }
+  .play-btn:hover { transform: scale(1.08); }
   .play-triangle {
     width: 0; height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 18px solid var(--navy);
-    margin-left: 4px;
+    border-top: 11px solid transparent; border-bottom: 11px solid transparent;
+    border-left: 20px solid var(--navy); margin-left: 5px;
   }
   .video-placeholder-title {
-    font-family: var(--serif); font-size: 16px; font-weight: 500;
-    color: var(--gold-light); text-align: center; padding: 0 20px;
+    font-family: var(--serif); font-size: 17px; font-weight: 500;
+    color: var(--gold-light); text-align: center; padding: 0 24px;
   }
-  .video-placeholder-sub {
-    font-size: 11px; color: rgba(255,255,255,0.45); text-align: center;
-  }
-
-  .video-info-panel {
-    display: flex; flex-direction: column; gap: 14px;
-  }
+  .video-placeholder-sub { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; }
+  .video-info-panel { display: flex; flex-direction: column; gap: 14px; }
   .video-desc {
-    font-size: 13px; color: var(--navy); line-height: 1.7;
-    padding: 16px 18px;
-    background: white;
-    border-radius: 10px;
+    font-size: 13px; color: var(--navy); line-height: 1.75;
+    padding: 18px 20px; background: var(--white); border-radius: 10px;
     border-left: 3px solid var(--gold);
     border-top: 1px solid rgba(26,39,68,0.08);
     border-right: 1px solid rgba(26,39,68,0.08);
     border-bottom: 1px solid rgba(26,39,68,0.08);
   }
-  .video-topics { display: flex; flex-direction: column; gap: 8px; }
   .topic-row {
     display: flex; align-items: center; gap: 10px;
-    font-size: 12px; color: var(--navy);
-    padding: 9px 14px;
-    background: white;
-    border-radius: 8px;
+    font-size: 13px; color: var(--navy);
+    padding: 10px 14px; background: var(--white); border-radius: 8px;
     border: 1px solid rgba(26,39,68,0.07);
   }
-  .topic-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--gold); flex-shrink: 0;
-  }
-
+  .topic-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .video-topics { display: flex; flex-direction: column; gap: 8px; }
   .url-input-wrap {
-    margin-top: 16px;
-    background: rgba(201,168,76,0.07);
-    border: 1px dashed var(--light-border);
-    border-radius: 10px;
-    padding: 16px 18px;
+    margin-top: 20px; background: rgba(201,168,76,0.07);
+    border: 1px dashed var(--light-border); border-radius: 10px; padding: 18px 20px;
   }
-  .url-label {
-    font-size: 11px; color: var(--gold); font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;
-  }
+  .url-label { font-size: 11px; color: var(--gold); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
   .url-row { display: flex; gap: 8px; }
   .url-input {
     flex: 1; font-family: var(--sans); font-size: 12px;
-    padding: 9px 12px; border-radius: 8px;
-    border: 1px solid rgba(201,168,76,0.4);
-    background: white; color: var(--navy);
-    outline: none;
+    padding: 9px 13px; border-radius: 8px;
+    border: 1px solid rgba(201,168,76,0.4); background: var(--white);
+    color: var(--navy); outline: none;
   }
   .url-input:focus { border-color: var(--gold); }
   .url-btn {
@@ -165,26 +191,182 @@
     background: var(--navy); color: var(--gold-light); border: none;
     transition: background 0.2s; white-space: nowrap;
   }
-  .url-btn:hover { background: #243560; }
+  .url-btn:hover { background: var(--navy-mid); }
   .url-hint { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
-
-  .embed-status {
-    font-size: 11px; margin-top: 8px; padding: 6px 10px;
-    border-radius: 6px; display: none;
-  }
+  .embed-status { font-size: 11px; margin-top: 8px; padding: 6px 10px; border-radius: 6px; display: none; }
   .embed-status.ok { display: block; background: rgba(46,125,79,0.1); color: #2e7d4f; }
   .embed-status.err { display: block; background: rgba(200,50,50,0.08); color: #b03030; }
+
+  /* ── SLIDE 2 — METRICS ── */
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin-bottom: 32px; }
+  .metric-card { background: var(--white); border-radius: 14px; padding: 28px 20px; text-align: center; border: 1px solid rgba(26,39,68,0.08); }
+  .metric-num { font-family: var(--serif); font-size: 48px; font-weight: 600; color: var(--navy); line-height: 1; margin-bottom: 8px; }
+  .metric-num span { font-size: 26px; color: var(--gold); }
+  .metric-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .metric-sub { font-size: 11px; color: var(--gold); margin-top: 6px; font-weight: 500; }
+  .distinguish-box { background: var(--navy); border-radius: 14px; padding: 28px 32px; }
+  .distinguish-label { font-size: 11px; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+  .distinguish-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .distinguish-item { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.7; padding-left: 16px; border-left: 2px solid var(--gold); }
+  .distinguish-item strong { color: var(--white); }
+
+  /* ── SLIDE 3 — SKILLS ── */
+  .skills-cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+  .skill-col-header {
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 18px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--light-border);
+  }
+  .skill-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 9px 0; border-bottom: 1px solid rgba(26,39,68,0.06);
+  }
+  .skill-name { font-size: 13px; color: var(--navy); }
+  .skill-dots { display: flex; gap: 4px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(26,39,68,0.12); }
+  .dot.filled { background: var(--gold); }
+
+  /* ── SLIDES 4 & 5 — CASE STUDIES ── */
+  .case-header { background: var(--navy); border-radius: 14px; padding: 28px 32px; margin-bottom: 24px; }
+  .case-company { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--gold-light); margin-bottom: 6px; }
+  .case-role { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.5; }
+  .case-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-size: 11px; padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(201,168,76,0.35); color: var(--gold-light); }
+  .case-body { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .case-box { background: var(--white); border-radius: 12px; padding: 20px 22px; border: 1px solid rgba(26,39,68,0.08); }
+  .case-box-title { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
+  .case-list { list-style: none; }
+  .case-list li { font-size: 13px; color: var(--navy); padding: 6px 0 6px 16px; position: relative; line-height: 1.55; border-bottom: 1px solid rgba(26,39,68,0.05); }
+  .case-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 6px; height: 1px; background: var(--gold); }
+  .impact-row { display: flex; gap: 12px; }
+  .impact-pill {
+    background: rgba(201,168,76,0.1); border: 1px solid var(--light-border);
+    color: var(--navy); font-size: 12px; padding: 10px 16px;
+    border-radius: 10px; text-align: center; flex: 1; line-height: 1.4;
+  }
+  .impact-pill strong { display: block; font-size: 20px; font-family: var(--serif); color: var(--gold); margin-bottom: 2px; }
+
+  /* ── SLIDE 6 — NORMS ── */
+  .norms-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+  .norm-card {
+    background: var(--white); border-radius: 12px; padding: 22px 20px;
+    border-left: 3px solid var(--gold);
+    border-top: 1px solid rgba(26,39,68,0.08);
+    border-right: 1px solid rgba(26,39,68,0.08);
+    border-bottom: 1px solid rgba(26,39,68,0.08);
+  }
+  .norm-name { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .norm-full { font-size: 11px; color: var(--gold); font-weight: 500; margin-bottom: 10px; }
+  .norm-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* ── SLIDE 7 — TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 11px; top: 10px; bottom: 10px; width: 1px; background: var(--light-border); }
+  .tl-item { position: relative; margin-bottom: 36px; }
+  .tl-dot { position: absolute; left: -26px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--gold); border: 2px solid var(--cream); }
+  .tl-dot.secondary { background: var(--navy-mid); }
+  .tl-year { font-size: 11px; color: var(--gold); font-weight: 500; margin-bottom: 5px; letter-spacing: 0.06em; }
+  .tl-title { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .tl-place { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .tl-desc { font-size: 13px; color: var(--navy); line-height: 1.7; max-width: 600px; }
+
+  /* ── SLIDE 8 — LAB ── */
+  .lab-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-bottom: 16px; }
+  .lab-card { background: var(--white); border-radius: 12px; padding: 20px 22px; border: 1px solid rgba(26,39,68,0.08); }
+  .lab-icon { font-size: 20px; margin-bottom: 10px; }
+  .lab-title { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 10px; }
+  .lab-items { font-size: 12px; color: var(--muted); line-height: 1.9; }
+  .lab-note { background: rgba(201,168,76,0.07); border: 1px solid var(--light-border); border-radius: 10px; padding: 18px 22px; }
+  .lab-note-title { font-size: 11px; color: var(--gold); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .lab-note-text { font-size: 13px; color: var(--navy); line-height: 1.7; }
+
+  /* ── SLIDE 9 — TOOLS ── */
+  .tools-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .tools-col-title { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; }
+  .lang-item { margin-bottom: 22px; }
+  .lang-name { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 7px; }
+  .lang-bar-bg { height: 4px; background: rgba(26,39,68,0.1); border-radius: 2px; margin-bottom: 5px; }
+  .lang-bar { height: 4px; background: var(--gold); border-radius: 2px; }
+  .lang-level { font-size: 11px; color: var(--muted); }
+  .tool-chip {
+    display: inline-block; background: var(--white);
+    border: 1px solid rgba(26,39,68,0.1); border-radius: 8px;
+    padding: 10px 16px; font-size: 13px; color: var(--navy);
+    margin: 6px 6px 0 0; line-height: 1.3;
+  }
+  .tools-note { margin-top: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid rgba(26,39,68,0.08); padding-top: 18px; line-height: 1.6; }
+
+  /* ── SLIDE 10 — CONTACT ── */
+  .contact-wrap { text-align: center; padding: 24px 0 40px; }
+  .contact-tagline { font-family: var(--serif); font-size: 38px; font-weight: 600; color: var(--navy); line-height: 1.25; margin-bottom: 12px; }
+  .contact-sub { font-size: 15px; color: var(--muted); margin-bottom: 48px; line-height: 1.6; }
+  .contact-items { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+  .contact-item { font-size: 14px; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+  .contact-ico {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(201,168,76,0.12); border: 1px solid var(--light-border);
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
+  }
+  .cta-btn {
+    background: var(--navy); color: var(--gold-light); border: none;
+    padding: 16px 44px; border-radius: 32px; font-family: var(--sans);
+    font-size: 15px; font-weight: 500; cursor: pointer;
+    letter-spacing: 0.04em; transition: background 0.2s; text-decoration: none; display: inline-block;
+  }
+  .cta-btn:hover { background: var(--navy-mid); }
+  .disponible {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: #2e7d4f; background: rgba(46,125,79,0.08);
+    padding: 7px 16px; border-radius: 20px; margin-top: 22px;
+  }
+  .dot-green { width: 7px; height: 7px; border-radius: 50%; background: #2e7d4f; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.35} }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .slide { padding: 32px 22px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-avatar { margin: 0 auto; }
+    .hero-name { font-size: 38px; }
+    .metrics-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .skills-cols, .norms-grid, .case-body, .tools-split, .lab-grid { grid-template-columns: 1fr; }
+    .impact-row { flex-wrap: wrap; }
+    .distinguish-grid { grid-template-columns: 1fr; }
+    .video-layout { grid-template-columns: 1fr; }
+    .nav-logo { display: none; }
+    .contact-tagline { font-size: 28px; }
+  }
 </style>
+</head>
+<body>
 
-<div class="hero-wrap">
+<nav class="nav">
+  <div class="nav-logo">Lylia Sarra Daid</div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="goTo(0)">Identité</button>
+    <button class="nav-btn" onclick="goTo(1)">En chiffres</button>
+    <button class="nav-btn" onclick="goTo(2)">Compétences</button>
+    <button class="nav-btn" onclick="goTo(3)">Complife</button>
+    <button class="nav-btn" onclick="goTo(4)">LSI Consulting</button>
+    <button class="nav-btn" onclick="goTo(5)">Référentiels</button>
+    <button class="nav-btn" onclick="goTo(6)">Parcours</button>
+    <button class="nav-btn" onclick="goTo(7)">Expertise Lab</button>
+    <button class="nav-btn" onclick="goTo(8)">Langues & Outils</button>
+    <button class="nav-btn" onclick="goTo(9)">Contact</button>
+  </div>
+</nav>
 
+<!-- ══════════════════════════════════════════
+     SLIDE 1 — HERO
+═══════════════════════════════════════════ -->
+<section class="slide active" id="s0">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow">Portfolio Professionnel · Assurance Qualité</div>
+      <div class="eyebrow">Portfolio Professionnel · Assurance Qualité</div>
       <div class="hero-name">Lylia Sarra<br>Daid</div>
       <div class="divider-gold"></div>
       <div class="accroche">"De la paillasse aux protocoles GMP — une expertise à double ancrage scientifique et réglementaire."</div>
-      <div class="hero-tagline">Chargée Assurance Qualité spécialisée en environnements réglementés GMP/BPF, gestion documentaire, CAPA et qualification. Formée en biochimie et biotechnologies.</div>
+      <p class="hero-tagline">Chargée Assurance Qualité spécialisée en environnements réglementés GMP/BPF, gestion documentaire, CAPA et qualification. Formée en biochimie et biotechnologies, je conjugue rigueur scientifique et exigences normatives.</p>
       <div class="hero-sectors">
         <span class="badge badge-navy">Pharmaceutique</span>
         <span class="badge badge-navy">Cosmétique</span>
@@ -195,37 +377,33 @@
     <div class="hero-avatar">LSD</div>
   </div>
 
-  <hr class="section-divider">
+  <hr class="section-hr">
 
-  <div class="video-section-label">Présentation vidéo</div>
-  <div class="video-section-title">Je me présente en 2 minutes</div>
-  <div class="video-section-sub">Une façon directe de vous donner envie de me rencontrer — avant même de lire mon CV.</div>
+  <div class="eyebrow">Présentation vidéo</div>
+  <div class="section-title">Je me présente en 2 minutes</div>
+  <p class="section-sub">Une façon directe de vous donner envie de me rencontrer — avant même de lire mon CV.</p>
 
   <div class="video-layout">
     <div>
       <div class="video-embed-box" id="video-container">
-        <div class="video-placeholder" id="placeholder" onclick="document.getElementById('url-wrap').scrollIntoView({behavior:'smooth'})">
+        <div class="video-placeholder" id="placeholder">
           <div class="play-btn"><div class="play-triangle"></div></div>
           <div class="video-placeholder-title">Ma vidéo de présentation</div>
-          <div class="video-placeholder-sub">Cliquez pour configurer le lien</div>
+          <div class="video-placeholder-sub">Bientôt disponible</div>
         </div>
       </div>
-
       <div class="url-input-wrap" id="url-wrap">
         <div class="url-label">Intégrer votre vidéo</div>
         <div class="url-row">
           <input class="url-input" id="video-url" type="text" placeholder="https://youtube.com/watch?v=... ou https://vimeo.com/...">
           <button class="url-btn" onclick="loadVideo()">Intégrer</button>
         </div>
-        <div class="url-hint">YouTube, Vimeo, ou tout lien iframe compatible. Pour GitHub Pages, une vidéo Vimeo ou YouTube public fonctionne parfaitement.</div>
+        <p class="url-hint">YouTube ou Vimeo public recommandé pour GitHub Pages. Ce champ n'est visible que par vous — supprimez-le une fois la vidéo configurée.</p>
         <div class="embed-status" id="embed-status"></div>
       </div>
     </div>
-
     <div class="video-info-panel">
-      <div class="video-desc">
-        Dans cette courte présentation, j'aborde mon parcours, ma vision de la qualité et ce qui me motive à travailler dans des environnements réglementés exigeants.
-      </div>
+      <div class="video-desc">Dans cette courte présentation, j'aborde mon parcours, ma vision de la qualité et ce qui me motive à travailler dans des environnements réglementés exigeants.</div>
       <div class="video-topics">
         <div class="topic-row"><div class="topic-dot"></div>Mon double profil scientifique &amp; AQ</div>
         <div class="topic-row"><div class="topic-dot"></div>Mes expériences terrain (CRO, GMP)</div>
@@ -234,33 +412,372 @@
       </div>
     </div>
   </div>
+</section>
 
-</div>
+<!-- ══════════════════════════════════════════
+     SLIDE 2 — EN CHIFFRES
+═══════════════════════════════════════════ -->
+<section class="slide" id="s1">
+  <div class="eyebrow">Profil en un coup d'œil</div>
+  <div class="section-title">Ce que j'apporte</div>
+  <p class="section-sub">Des données concrètes pour un recruteur qui veut aller à l'essentiel.</p>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-num">3<span>+</span></div>
+      <div class="metric-label">Secteurs réglementés maîtrisés</div>
+      <div class="metric-sub">Pharma · Cosmétique · DM</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">6</div>
+      <div class="metric-label">Référentiels normatifs couverts</div>
+      <div class="metric-sub">ISO 9001 · 13485 · BPF · MDR…</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">2</div>
+      <div class="metric-label">Missions AQ opérationnelles</div>
+      <div class="metric-sub">CRO & Cabinet conseil GMP</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num">3</div>
+      <div class="metric-label">Langues de travail</div>
+      <div class="metric-sub">FR · EN B2 · AR natif</div>
+    </div>
+  </div>
+  <div class="distinguish-box">
+    <div class="distinguish-label">Ce qui me distingue</div>
+    <div class="distinguish-grid">
+      <div class="distinguish-item">Double culture <strong>scientifique &amp; réglementaire</strong> — rare en AQ. Issue d'un Master biotechnologies avec expérience laboratoire en Suisse.</div>
+      <div class="distinguish-item">Capacité à <strong>sensibiliser les équipes</strong> à la culture qualité, y compris par la création de supports vidéo pédagogiques innovants.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 3 — COMPÉTENCES
+═══════════════════════════════════════════ -->
+<section class="slide" id="s2">
+  <div class="eyebrow">Domaines de maîtrise</div>
+  <div class="section-title">Carte des compétences</div>
+  <p class="section-sub">Trois piliers complémentaires qui font la cohérence de mon profil.</p>
+  <div class="skills-cols">
+    <div>
+      <div class="skill-col-header">Systèmes qualité</div>
+      <div class="skill-item"><span class="skill-name">Gestion documentaire SMQ</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></div>
+      <div class="skill-item"><span class="skill-name">CAPA &amp; non-conformités</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Audits internes &amp; clients</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Indicateurs KPI</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Culture qualité &amp; sensibilisation</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Rédaction SOP &amp; procédures</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></div>
+    </div>
+    <div>
+      <div class="skill-col-header">Terrain &amp; projets GMP</div>
+      <div class="skill-item"><span class="skill-name">Qualification QI / QO</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Data integrity &amp; traçabilité</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Essais cliniques (CRO)</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Clôture FNC</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Déploiement LIMS</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Analyse causes (5 pourquoi)</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></div>
+    </div>
+    <div>
+      <div class="skill-col-header">Sciences &amp; laboratoire</div>
+      <div class="skill-item"><span class="skill-name">Culture cellulaire</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Western Blot</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">HPLC &amp; spectrophotométrie</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Phytochimie &amp; extraction</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Tests de viabilité cellulaire</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Histologie &amp; immunohistochimie</span><div class="skill-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 4 — COMPLIFE
+═══════════════════════════════════════════ -->
+<section class="slide" id="s3">
+  <div class="eyebrow">Étude de cas · Mission 1</div>
+  <div class="case-header">
+    <div class="case-company">Complife France · CRO</div>
+    <div class="case-role">Assistante Assurance Qualité — Essais cliniques produits cosmétiques &amp; dispositifs médicaux · Lyon, 2024</div>
+    <div class="case-tags">
+      <span class="tag">ISO 9001</span><span class="tag">BPC</span><span class="tag">CAPA</span><span class="tag">KPI</span><span class="tag">Audits</span><span class="tag">Culture qualité</span>
+    </div>
+  </div>
+  <div class="case-body">
+    <div class="case-box">
+      <div class="case-box-title">Contexte &amp; défi</div>
+      <ul class="case-list">
+        <li>Maintien de la certification ISO 9001 de l'entreprise</li>
+        <li>Obtention de la qualification d'un client stratégique majeur</li>
+        <li>Identifier les causes des dysfonctionnements 2023 pour orienter le plan d'actions 2024</li>
+      </ul>
+    </div>
+    <div class="case-box">
+      <div class="case-box-title">Actions clés menées</div>
+      <ul class="case-list">
+        <li>Mise en place et suivi d'un tableau de bord KPI</li>
+        <li>Rédaction et traduction de SOP et documents qualité</li>
+        <li>Gestion des FNC, analyse des causes racines (5 pourquoi)</li>
+        <li>Planification et participation aux audits interne &amp; client</li>
+        <li>Création d'une série de vidéos de sensibilisation qualité</li>
+        <li>Maintenance continue du système documentaire</li>
+      </ul>
+    </div>
+  </div>
+  <div class="impact-row">
+    <div class="impact-pill"><strong>✓</strong>ISO 9001 maintenu</div>
+    <div class="impact-pill"><strong>1er</strong>numéro série vidéo lancé</div>
+    <div class="impact-pill"><strong>Audit</strong>client réussi</div>
+    <div class="impact-pill"><strong>CAPA 2024</strong>planifié &amp; piloté</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 5 — LSI CONSULTING
+═══════════════════════════════════════════ -->
+<section class="slide" id="s4">
+  <div class="eyebrow">Étude de cas · Mission 2</div>
+  <div class="case-header">
+    <div class="case-company">LSI Consulting · Orléans</div>
+    <div class="case-role">Consultante Qualité — Qualification &amp; Documentation GMP/BPF · 2025</div>
+    <div class="case-tags">
+      <span class="tag">GMP / BPF</span><span class="tag">QI / QO</span><span class="tag">LIMS</span><span class="tag">Data integrity</span><span class="tag">FNC</span>
+    </div>
+  </div>
+  <div class="case-body">
+    <div class="case-box">
+      <div class="case-box-title">Contexte &amp; défi</div>
+      <ul class="case-list">
+        <li>Environnement réglementé avec exigences strictes de traçabilité</li>
+        <li>Projet de déploiement LIMS à documenter</li>
+        <li>Clôture de non-conformités liées aux activités de qualification</li>
+        <li>Couverture complète du cycle de qualification documentaire</li>
+      </ul>
+    </div>
+    <div class="case-box">
+      <div class="case-box-title">Actions clés menées</div>
+      <ul class="case-list">
+        <li>Mise à jour de la documentation qualité interne (GMP/BPF)</li>
+        <li>Rédaction complète des rapports QI et QO</li>
+        <li>Rédaction des protocoles et rapports QMI</li>
+        <li>Clôture de FNC avec vérification de conformité réglementaire</li>
+        <li>Contribution à la documentation du projet LIMS</li>
+        <li>Application data integrity sur l'ensemble des livrables</li>
+      </ul>
+    </div>
+  </div>
+  <div class="impact-row">
+    <div class="impact-pill"><strong>QI/QO</strong>rédigés &amp; conformes</div>
+    <div class="impact-pill"><strong>FNC</strong>clôturées avec succès</div>
+    <div class="impact-pill"><strong>LIMS</strong>documenté</div>
+    <div class="impact-pill"><strong>BPF</strong>data integrity appliquée</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 6 — RÉFÉRENTIELS
+═══════════════════════════════════════════ -->
+<section class="slide" id="s5">
+  <div class="eyebrow">Environnements normatifs</div>
+  <div class="section-title">Référentiels maîtrisés</div>
+  <p class="section-sub">Une couverture réglementaire adaptée aux trois secteurs cibles.</p>
+  <div class="norms-grid">
+    <div class="norm-card">
+      <div class="norm-name">ISO 9001</div>
+      <div class="norm-full">Management de la qualité</div>
+      <div class="norm-desc">Maintien de SMQ, audits internes, revue de direction, gestion documentaire chez Complife.</div>
+    </div>
+    <div class="norm-card">
+      <div class="norm-name">ISO 13485</div>
+      <div class="norm-full">Dispositifs médicaux — SMQ</div>
+      <div class="norm-desc">Connaissance des exigences qualité spécifiques DM, applicable aux environnements CRO.</div>
+    </div>
+    <div class="norm-card">
+      <div class="norm-name">MDR 2017/745</div>
+      <div class="norm-full">Règlement européen DM</div>
+      <div class="norm-desc">Maîtrise du cadre réglementaire européen pour la mise sur le marché des dispositifs médicaux.</div>
+    </div>
+    <div class="norm-card">
+      <div class="norm-name">BPF / GMP</div>
+      <div class="norm-full">Bonnes Pratiques de Fabrication</div>
+      <div class="norm-desc">Application terrain chez LSI Consulting : qualification, traçabilité, data integrity.</div>
+    </div>
+    <div class="norm-card">
+      <div class="norm-name">BPC</div>
+      <div class="norm-full">Bonnes Pratiques Cliniques</div>
+      <div class="norm-desc">Contexte essais cliniques : processus de réception client jusqu'à la rédaction des rapports finaux.</div>
+    </div>
+    <div class="norm-card">
+      <div class="norm-name">ISO 14155</div>
+      <div class="norm-full">Investigation clinique DM</div>
+      <div class="norm-desc">Connaissance du cadre normatif pour les investigations cliniques des dispositifs médicaux.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 7 — PARCOURS
+═══════════════════════════════════════════ -->
+<section class="slide" id="s6">
+  <div class="eyebrow">Formation &amp; Expériences</div>
+  <div class="section-title">Parcours</div>
+  <p class="section-sub">Une trajectoire cohérente, de la recherche fondamentale à la qualité industrielle.</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2025 — En cours</div>
+      <div class="tl-title">LSI Consulting</div>
+      <div class="tl-place">Orléans, France · Consultante Qualité</div>
+      <div class="tl-desc">Documentation GMP/BPF, qualification QI/QO, LIMS, clôture FNC. Environnement haute exigence réglementaire avec application stricte de la data integrity.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024</div>
+      <div class="tl-title">Complife France · CRO</div>
+      <div class="tl-place">Lyon, France · Assistante Assurance Qualité</div>
+      <div class="tl-desc">ISO 9001, CAPA, KPI, audits internes &amp; client, sensibilisation qualité par vidéo. Essais cliniques produits cosmétiques &amp; dispositifs médicaux.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2023</div>
+      <div class="tl-title">HUG &amp; CMU de Genève</div>
+      <div class="tl-place">Suisse · Assistante Laboratoire Dermatotoxicologie</div>
+      <div class="tl-desc">Recherche translationnelle sur le vieillissement cutané et la rosacée. Culture cellulaire, Western Blot, HPLC, phytochimie — Hôpitaux Universitaires de Genève.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot secondary"></div>
+      <div class="tl-year">Formation initiale</div>
+      <div class="tl-title">Master 2 Ingénierie Biochimie &amp; Biotechnologies</div>
+      <div class="tl-place">Université Claude Bernard Lyon 1 · Lyon</div>
+      <div class="tl-desc">Formation scientifique de haut niveau, socle des compétences analytiques et méthodologiques appliquées à la qualité réglementée.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 8 — EXPERTISE LAB
+═══════════════════════════════════════════ -->
+<section class="slide" id="s7">
+  <div class="eyebrow">Différenciateur clé</div>
+  <div class="section-title">Expertise scientifique &amp; laboratoire</div>
+  <p class="section-sub">Un profil AQ ancré dans la science — un atout rare pour les secteurs cosmétique, DM et pharmacologie.</p>
+  <div class="lab-grid">
+    <div class="lab-card">
+      <div class="lab-icon">🔬</div>
+      <div class="lab-title">Culture cellulaire &amp; biologie</div>
+      <div class="lab-items">Manipulation en conditions stériles<br>Entretien de lignées cutanées<br>Tests de viabilité PrestoBlue®<br>Western Blot (protéine Tie-2)</div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-icon">⚗️</div>
+      <div class="lab-title">Techniques analytiques</div>
+      <div class="lab-items">HPLC — séparation &amp; identification<br>Spectrophotométrie<br>Test DPPH (activité antioxydante)<br>Standardisation de solutions complexes</div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-icon">🌿</div>
+      <div class="lab-title">Phytochimie</div>
+      <div class="lab-items">Extraction de principes actifs végétaux<br>Caractérisation de composés bioactifs<br>Développement d'émulsions thérapeutiques<br>Application sur la dermatoporose</div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-icon">🧫</div>
+      <div class="lab-title">Histologie &amp; dermatologie</div>
+      <div class="lab-items">Immunohistochimie — marquage spécifique<br>Extraction biomarqueurs cyanoacrylate<br>Affections : rosacée &amp; dermatoporose<br>Recherche translationnelle (HUG Genève)</div>
+    </div>
+  </div>
+  <div class="lab-note">
+    <div class="lab-note-title">Pourquoi c'est un atout en AQ</div>
+    <div class="lab-note-text">Comprendre les procédés et les produits que l'on qualifie ou audite n'est pas une option — c'est un avantage décisif. Mon background laboratoire me permet de dialoguer avec les équipes R&amp;D, de comprendre les paramètres critiques et d'évaluer les risques qualité avec pertinence.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 9 — LANGUES & OUTILS
+═══════════════════════════════════════════ -->
+<section class="slide" id="s8">
+  <div class="eyebrow">Langues &amp; outils</div>
+  <div class="section-title">Capacités de travail</div>
+  <p class="section-sub">Polyglotte et à l'aise avec les outils de gestion qualité.</p>
+  <div class="tools-split">
+    <div>
+      <div class="tools-col-title">Langues</div>
+      <div class="lang-item">
+        <div class="lang-name">Français</div>
+        <div class="lang-bar-bg"><div class="lang-bar" style="width:100%"></div></div>
+        <div class="lang-level">Langue maternelle — rédaction professionnelle courante</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Arabe</div>
+        <div class="lang-bar-bg"><div class="lang-bar" style="width:100%"></div></div>
+        <div class="lang-level">Langue maternelle — communication terrain &amp; interculturelle</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-bar-bg"><div class="lang-bar" style="width:78%"></div></div>
+        <div class="lang-level">Niveau B2 — lecture de normes, rédaction de SOP, communication client</div>
+      </div>
+    </div>
+    <div>
+      <div class="tools-col-title">Outils &amp; logiciels</div>
+      <span class="tool-chip">📊 Excel / Word / PowerPoint</span>
+      <span class="tool-chip">📋 ODOO (ERP Qualité)</span>
+      <span class="tool-chip">📁 Gestion documentaire SMQ</span>
+      <span class="tool-chip">📈 Tableaux de bord KPI</span>
+      <span class="tool-chip">🎬 Création vidéo sensibilisation</span>
+      <span class="tool-chip">📝 Rédaction SOP &amp; protocoles</span>
+      <div class="tools-note">Habituée à travailler dans des environnements documentaires stricts avec exigences de traçabilité et data integrity.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 10 — CONTACT
+═══════════════════════════════════════════ -->
+<section class="slide" id="s9">
+  <div class="contact-wrap">
+    <div class="eyebrow" style="text-align:center">Vous avez un projet qualité ?</div>
+    <div class="contact-tagline">Construisons ensemble<br>la conformité de demain.</div>
+    <p class="contact-sub">Disponible pour des missions en CDI, CDD ou consulting<br>dans les secteurs pharmaceutique, cosmétique et dispositifs médicaux.</p>
+    <div class="contact-items">
+      <div class="contact-item"><div class="contact-ico">✉</div> lylia.daid@email.com</div>
+      <div class="contact-item"><div class="contact-ico">🔗</div> linkedin.com/in/lylia-daid</div>
+      <div class="contact-item"><div class="contact-ico">📍</div> France · Mobilité nationale</div>
+    </div>
+    <a href="mailto:lylia.daid@email.com" class="cta-btn">Me contacter</a>
+    <div><div class="disponible"><div class="dot-green"></div> Disponible dès maintenant</div></div>
+  </div>
+</section>
 
 <script>
-function loadVideo() {
-  var raw = document.getElementById('video-url').value.trim();
-  var status = document.getElementById('embed-status');
-  var container = document.getElementById('video-container');
-  var embedUrl = '';
-
-  var ytMatch = raw.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  var vimeoMatch = raw.match(/vimeo\.com\/(\d+)/);
-
-  if (ytMatch) {
-    embedUrl = 'https://www.youtube.com/embed/' + ytMatch[1] + '?rel=0&modestbranding=1';
-  } else if (vimeoMatch) {
-    embedUrl = 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?title=0&byline=0&portrait=0';
-  } else if (raw.startsWith('http')) {
-    embedUrl = raw;
-  } else {
-    status.className = 'embed-status err';
-    status.textContent = 'Lien non reconnu. Vérifiez le format YouTube, Vimeo, ou URL directe.';
-    return;
+  function goTo(i) {
+    document.querySelectorAll('.slide').forEach(function(s, idx) {
+      s.classList.toggle('active', idx === i);
+    });
+    document.querySelectorAll('.nav-btn').forEach(function(b, idx) {
+      b.classList.toggle('active', idx === i);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  container.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>';
-  status.className = 'embed-status ok';
-  status.textContent = 'Vidéo intégrée avec succès.';
-}
+  function loadVideo() {
+    var raw = document.getElementById('video-url').value.trim();
+    var status = document.getElementById('embed-status');
+    var container = document.getElementById('video-container');
+    var embedUrl = '';
+    var ytMatch = raw.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    var vimeoMatch = raw.match(/vimeo\.com\/(\d+)/);
+    if (ytMatch) {
+      embedUrl = 'https://www.youtube.com/embed/' + ytMatch[1] + '?rel=0&modestbranding=1';
+    } else if (vimeoMatch) {
+      embedUrl = 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?title=0&byline=0&portrait=0';
+    } else if (raw.startsWith('http')) {
+      embedUrl = raw;
+    } else {
+      status.className = 'embed-status err';
+      status.textContent = 'Lien non reconnu. Utilisez un lien YouTube, Vimeo, ou une URL directe.';
+      return;
+    }
+    container.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    status.className = 'embed-status ok';
+    status.textContent = 'Vidéo intégrée avec succès !';
+  }
 </script>
+</body>
+</html>
